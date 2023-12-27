@@ -1,0 +1,23 @@
+{
+  "name": "iana-memi",
+  "version": "0.1.0",
+  "description": "IANA Memi Types",
+  "main": "index.js",
+  "scripts": {
+    "app": "node ./src/application.js",
+    "aud": "node ./src/audio.js",
+    "font": "node ./src/font.js",
+    "img": "node ./src/image.js",
+    "mes": "node ./src/message.js",
+    "mul": "node ./src/multipart.js",
+    "text": "node ./src/text.js",
+    "vid": "node ./src/video.js"
+  },
+  "author": "Pho Thin Maung",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.3",
+    "cheerio": "^1.0.0-rc.12",
+    "polka": "^0.5.2"
+  }
+}
