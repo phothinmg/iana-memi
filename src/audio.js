@@ -26,5 +26,5 @@ table.find('tr').each((index, row) => {
 
 scrapeSite().then(result => {
     // const data = `<pre>${result}</pre>`
-	fs.writeFileSync('./iana/memi-type/audio.json', JSON.stringify(result, null, 2))
+	fs.writeFileSync('./docs/audio/audio.json', JSON.stringify(result, null, 2))
 }).catch(err => console.log(err))

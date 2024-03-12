@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
+    <title>Media Types</title>
+  </head>
+  <body>
+    <pre>
+        <!-- <img src="https://www.iana.org/_img/2022/iana-logo-header.svg" alt="IANA"> -->
+        <h1>IANA : MEDIA TYPES</h1>
+        <h3>1. <a href="./application">Application</a> <small>Download Json</small> <i class="ti ti-download" name="application"></i></h3>
+        <h3>2. <a href="./audio">Audio</a>  <small>Download Json</small> <i class="ti ti-download" name="audio"></i></h3>
+        <h3>3. <a href="./font">Font</a> <small>Download Json</small> <i class="ti ti-download" name="font"></i></h3>
+        <h3>4. <a href="./image">Image</a> <small>Download Json</small> <i class="ti ti-download" name="image"></i></h3>
+        <h3>5. <a href="./message">Message</a> <small>Download Json</small> <i class="ti ti-download" name="message"></i></h3>
+        <h3>6. <a href="./model">Model</a> <small>Download Json</small> <i class="ti ti-download" name="model"></i></h3>
+        <h3>7. <a href="./multipart">Multipart</a> <small>Download Json</small> <i class="ti ti-download" name="multipart"></i></h3>
+        <h3>8. <a href="./text">Text</a> <small>Download Json</small> <i class="ti ti-download" name="text"></i></h3>
+        <h3>9. <a href="./video/">Video</a> <small>Download Json</small> <i class="ti ti-download" name="video"></i></h3>
+    </pre>
+    <script>
+      function downloadFile(fileUrl, fileName) {
+        const link = document.createElement("a");
+        link.href = fileUrl;
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+      var dlbButtons = document.querySelectorAll(".ti-download");
+
+      dlbButtons.forEach(function (button) {
+        button.addEventListener("click", function (event) {
+          var name = event.target.getAttribute("name");
+          const fileUrl = `./${name}/index.json`;
+          const fileName = `${name}-mime.json`;
+          downloadFile(fileUrl, fileName);
+        });
+      });
+    </script>
+  </body>
+</html>

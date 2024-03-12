@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-family: monospace;
+  background-color: beige;
+}
+
+body > * {
+  grid-column: 2;
+}
+
+pre {
+  margin-top: 20px;
+}
+
+table,
+td,
+th {
+  text-align: left;
+}
+
+th,
+td {
+  padding: 15px;
+}
+
+a {
+  font-size: large;
+}
+
+h3 {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+h1 {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+i{
+  font-size: large;
+  font-weight: bolder;
+}
+
+small{
+  margin-top: 3px;
+}

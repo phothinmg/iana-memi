@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
+    <title>Media Types: Video</title>
+  </head>
+  <body>
+    <pre></pre>
+
+    <script>
+      var pre = document.querySelector("pre");
+
+      fetch("./index.json")
+        .then((response) => response.json())
+        .then((data) => {
+          let b = [];
+          Object.entries(data).forEach(([key, value]) => {
+            var a = `<tr>
+            <td>${key}</td>
+            <td>${value}</td>
+            </tr>`;
+            b.push(a);
+          });
+          console.log(b);
+          pre.innerHTML = `
+          <h1>Video  <a href="/" style="text-decoration: none; margin-top: 5px"><i class="ti ti-home" style="font-size: larger; font-weight: bold;"></i></a> </h1>
+          <table>
+                  <thead>
+                      <tr>
+                          <th>Name</th>
+                          <th>Template</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      ${b.map((i) => i).join("")}
+
+                  </tbody>
+          </table>
+          `;
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    </script>
+  </body>
+</html>

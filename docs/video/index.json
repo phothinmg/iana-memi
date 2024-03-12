@@ -9,6 +9,7 @@
   "CelB": "video/CelB",
   "DV": "video/DV",
   "encaprtp": "video/encaprtp",
+  "evc": "video/evc",
   "example": "video/example",
   "FFV1": "video/FFV1",
   "flexfec": "video/flexfec",

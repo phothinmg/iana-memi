@@ -43,6 +43,7 @@
   "EVRCWB1": "audio/EVRCWB1",
   "EVS": "audio/EVS",
   "example": "audio/example",
+  "flac": "audio/flac",
   "flexfec": "audio/flexfec",
   "fwdred": "audio/fwdred",
   "G711-0": "audio/G711-0",
