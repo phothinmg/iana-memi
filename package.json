@@ -1,5 +1,5 @@
 {
-  "name": "iana-memi",
+  "name": "iana-media-type",
   "version": "0.1.0",
   "description": "IANA  MIME types",
   "main": "index.js",
