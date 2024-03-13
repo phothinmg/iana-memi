@@ -13,18 +13,23 @@
   </head>
   <body>
     <pre>
-        <!-- <img src="https://www.iana.org/_img/2022/iana-logo-header.svg" alt="IANA"> -->
-        <h1>IANA : MEDIA TYPES</h1>
-        <h3>1. <a href="./application">Application</a> <small>Download Json</small> <i class="ti ti-download" name="application"></i></h3>
-        <h3>2. <a href="./audio">Audio</a>  <small>Download Json</small> <i class="ti ti-download" name="audio"></i></h3>
-        <h3>3. <a href="./font">Font</a> <small>Download Json</small> <i class="ti ti-download" name="font"></i></h3>
-        <h3>4. <a href="./image">Image</a> <small>Download Json</small> <i class="ti ti-download" name="image"></i></h3>
-        <h3>5. <a href="./message">Message</a> <small>Download Json</small> <i class="ti ti-download" name="message"></i></h3>
-        <h3>6. <a href="./model">Model</a> <small>Download Json</small> <i class="ti ti-download" name="model"></i></h3>
-        <h3>7. <a href="./multipart">Multipart</a> <small>Download Json</small> <i class="ti ti-download" name="multipart"></i></h3>
-        <h3>8. <a href="./text">Text</a> <small>Download Json</small> <i class="ti ti-download" name="text"></i></h3>
-        <h3>9. <a href="./video/">Video</a> <small>Download Json</small> <i class="ti ti-download" name="video"></i></h3>
+        <h3>Media Types (formerly known as MIME types) on <a href="https://www.iana.org/assignments/media-types/media-types.xhtml" style="text-decoration: non;" target="_blank">IANA registry</a></h3>
+        <hr>
+         Other Media Type Parameters:  "https://www.iana.org/assignments/media-types-parameters/media-types-parameters.xhtml"
+         Media Type Sub-Parameters: "https://www.iana.org/assignments/media-type-sub-parameters/media-type-sub-parameters.xhtml"
+         Provisional Standard Media Type Registry: "https://www.iana.org/assignments/provisional-standard-media-types/provisional-standard-media-types.xhtml"
+         <hr>
+        <h3>1. <a href="./application">Application</a> <small>Download Json</small> <i class="ti ti-download" name="application"></i> <small id="a"></small></h3>
+        <h3>2. <a href="./audio">Audio</a>  <small>Download Json</small> <i class="ti ti-download" name="audio"></i>   <small id="b"></small> </h3>
+        <h3>3. <a href="./font">Font</a> <small>Download Json</small> <i class="ti ti-download" name="font"></i> <small id="c"></small></h3>
+        <h3>4. <a href="./image">Image</a> <small>Download Json</small> <i class="ti ti-download" name="image"></i> <small id="d"></small></h3>
+        <h3>5. <a href="./message">Message</a> <small>Download Json</small> <i class="ti ti-download" name="message"></i> <small id="e"></small></h3>
+        <h3>6. <a href="./model">Model</a> <small>Download Json</small> <i class="ti ti-download" name="model"></i>  <small id="f"></small></h3>
+        <h3>7. <a href="./multipart">Multipart</a> <small>Download Json</small> <i class="ti ti-download" name="multipart"></i> <small id="g"></small></h3>
+        <h3>8. <a href="./text">Text</a> <small>Download Json</small> <i class="ti ti-download" name="text"></i> <small id="h"></small> </h3>
+        <h3>9. <a href="./video/">Video</a> <small>Download Json</small> <i class="ti ti-download" name="video"></i>  <small id="i"></small> </h3>
     </pre>
+   
     <script>
       function downloadFile(fileUrl, fileName) {
         const link = document.createElement("a");
@@ -44,6 +49,21 @@
           downloadFile(fileUrl, fileName);
         });
       });
+    </script>
+    <script>
+      fetch("./last.json")
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById("a").innerText = `Last Update : ${data[0]}`;
+          document.getElementById("b").innerText = `Last Update : ${data[1]}`;
+          document.getElementById("c").innerText = `Last Update : ${data[2]}`;
+          document.getElementById("d").innerText = `Last Update : ${data[3]}`;
+          document.getElementById("e").innerText = `Last Update : ${data[4]}`;
+          document.getElementById("f").innerText = `Last Update : ${data[5]}`;
+          document.getElementById("g").innerText = `Last Update : ${data[6]}`;
+          document.getElementById("h").innerText = `Last Update : ${data[7]}`;
+          document.getElementById("i").innerText = `Last Update : ${data[8]}`;
+        });
     </script>
   </body>
 </html>

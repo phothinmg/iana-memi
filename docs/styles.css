@@ -45,11 +45,28 @@ h1 {
   gap: 20px;
 }
 
-i{
-  font-size: large;
+.ti-download{
+  font-size: larger;
   font-weight: bolder;
+}
+
+.ti-download:hover{
+  cursor: pointer;
+  color: indigo;
 }
 
 small{
   margin-top: 3px;
+  color: grey;
 }
+
+hr{
+  border: 1px solid gray;
+
+}
+
+/* .ti-brand-github-filled{
+  font-size: larger;
+  font-weight: bolder;
+  color: rebeccapurple;
+} */
