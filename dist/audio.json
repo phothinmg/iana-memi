@@ -76,6 +76,7 @@
   "MELP1200": "audio/MELP1200",
   "MELP2400": "audio/MELP2400",
   "mhas": "audio/mhas",
+  "midi-clip": "audio/midi-clip",
   "mobile-xmf": "audio/mobile-xmf",
   "MPA": "audio/MPA",
   "mp4": "audio/mp4",

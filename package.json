@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "scripts": {
     "start": "node ./server.js",
-    "build": "node ./src/index.js && node ./docs/last.js"
+    "build": "node ./src/index.mjs"
   },
   "author": "Pho Thin Maung",
   "license": "MIT",

@@ -17,7 +17,7 @@
     <script>
       var pre = document.querySelector("pre");
 
-      fetch("./index.json")
+      fetch("../../dist/image.json")
         .then((response) => response.json())
         .then((data) => {
           let b = [];
@@ -30,8 +30,8 @@
           });
           console.log(b);
           pre.innerHTML = `
-          <h1>Image <a href="/" style="text-decoration: none; margin-top: 5px"><i class="ti ti-home" style="font-size: larger; font-weight: bold;"></i></a> </h1>
-      
+          <h1>Image</h1>
+          <a href="../index.html" style="text-decoration: none; margin-top: 5px"><i class="ti ti-home" style="font-size: larger; font-weight: bold;"></i></a>
           <table>
                   <thead>
                       <tr>

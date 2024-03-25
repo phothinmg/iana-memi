@@ -1,7 +1,6 @@
-const axios = require("axios");
-const fs = require("fs");
-const cheerio = require("cheerio");
-
+import fs from "node:fs";
+import axios from "axios";
+import * as cheerio from "cheerio";
 async function scrapeSiteApplication() {
   const url = `https://www.iana.org/assignments/media-types/media-types.xhtml`;
   const { data } = await axios.get(url, {
@@ -23,16 +22,6 @@ async function scrapeSiteApplication() {
   });
   return tableData;
 }
-
-scrapeSiteApplication()
-  .then((result) => {
-    // const data = `<pre>${result}</pre>`
-    fs.writeFileSync(
-      "./docs/application/index.json",
-      JSON.stringify(result, null, 2)
-    );
-  })
-  .catch((err) => console.log(err));
 
 // --------------------
 
@@ -58,16 +47,6 @@ async function scrapeSiteAudio() {
   return tableData;
 }
 
-scrapeSiteAudio()
-  .then((result) => {
-    // const data = `<pre>${result}</pre>`
-    fs.writeFileSync(
-      "./docs/audio/index.json",
-      JSON.stringify(result, null, 2)
-    );
-  })
-  .catch((err) => console.log(err));
-
 // --------------------------------------------------
 
 async function scrapeSiteFont() {
@@ -91,13 +70,6 @@ async function scrapeSiteFont() {
   });
   return tableData;
 }
-
-scrapeSiteFont()
-  .then((result) => {
-    // const data = `<pre>${result}</pre>`
-    fs.writeFileSync("./docs/font/index.json", JSON.stringify(result, null, 2));
-  })
-  .catch((err) => console.log(err));
 
 // -----------------------------------------
 
@@ -123,16 +95,6 @@ async function scrapeSiteImage() {
   return tableData;
 }
 
-scrapeSiteImage()
-  .then((result) => {
-    // const data = `<pre>${result}</pre>`
-    fs.writeFileSync(
-      "./docs/image/index.json",
-      JSON.stringify(result, null, 2)
-    );
-  })
-  .catch((err) => console.log(err));
-
 // ---------------------------------------------
 
 async function scrapeSiteMessage() {
@@ -156,16 +118,6 @@ async function scrapeSiteMessage() {
   });
   return tableData;
 }
-
-scrapeSiteMessage()
-  .then((result) => {
-    // const data = `<pre>${result}</pre>`
-    fs.writeFileSync(
-      "./docs/message/index.json",
-      JSON.stringify(result, null, 2)
-    );
-  })
-  .catch((err) => console.log(err));
 
 // -----------------------------------
 
@@ -191,16 +143,6 @@ async function scrapeSiteModel() {
   return tableData;
 }
 
-scrapeSiteModel()
-  .then((result) => {
-    // const data = `<pre>${result}</pre>`
-    fs.writeFileSync(
-      "./docs/model/index.json",
-      JSON.stringify(result, null, 2)
-    );
-  })
-  .catch((err) => console.log(err));
-
 // -------------------------------------
 
 async function scrapeSiteMultipart() {
@@ -225,16 +167,6 @@ async function scrapeSiteMultipart() {
   return tableData;
 }
 
-scrapeSiteMultipart()
-  .then((result) => {
-    // const data = `<pre>${result}</pre>`
-    fs.writeFileSync(
-      "./docs/multipart/index.json",
-      JSON.stringify(result, null, 2)
-    );
-  })
-  .catch((err) => console.log(err));
-
 // ----------------------------------------------------------
 
 async function scrapeSiteText() {
@@ -258,13 +190,6 @@ async function scrapeSiteText() {
   });
   return tableData;
 }
-
-scrapeSiteText()
-  .then((result) => {
-    // const data = `<pre>${result}</pre>`
-    fs.writeFileSync("./docs/text/index.json", JSON.stringify(result, null, 2));
-  })
-  .catch((err) => console.log(err));
 
 // --------------------------------------------
 
@@ -299,3 +224,31 @@ scrapeSiteVideo()
     );
   })
   .catch((err) => console.log(err));
+
+function latest() {
+  const a = fs.statSync("./dist/application.json").mtime.toDateString();
+  const aa = fs.statSync("./dist/audio.json").mtime.toDateString();
+  const f = fs.statSync("./dist/font.json").mtime.toDateString();
+  const i = fs.statSync("./dist/image.json").mtime.toDateString();
+  const m1 = fs.statSync("./dist/message.json").mtime.toDateString();
+  const m2 = fs.statSync("./dist/model.json").mtime.toDateString();
+  const m3 = fs.statSync("./dist/multipart.json").mtime.toDateString();
+  const t = fs.statSync("./dist/text.json").mtime.toDateString();
+  const v = fs.statSync("./dist/video.json").mtime.toDateString();
+
+  const da = [a, aa, f, i, m1, m2, m3, t, v];
+  fs.writeFileSync("./dist/last.json", JSON.stringify(da, null, 2));
+}
+
+export {
+  scrapeSiteApplication,
+  scrapeSiteAudio,
+  scrapeSiteFont,
+  scrapeSiteImage,
+  scrapeSiteMessage,
+  scrapeSiteModel,
+  scrapeSiteMultipart,
+  scrapeSiteText,
+  scrapeSiteVideo,
+  latest,
+};
