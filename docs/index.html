@@ -44,14 +44,14 @@
       dlbButtons.forEach(function (button) {
         button.addEventListener("click", function (event) {
           var name = event.target.getAttribute("name");
-          const fileUrl = `../dist/${name}.json`;
+          const fileUrl = `./dist/${name}.json`;
           const fileName = `${name}-mime.json`;
           downloadFile(fileUrl, fileName);
         });
       });
     </script>
     <script>
-      fetch("../dist/last.json")
+      fetch("./dist/last.json")
         .then((response) => response.json())
         .then((data) => {
           document.getElementById("a").innerText = `Last Update : ${data[0]}`;

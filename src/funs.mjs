@@ -215,29 +215,19 @@ async function scrapeSiteVideo() {
   return tableData;
 }
 
-scrapeSiteVideo()
-  .then((result) => {
-    // const data = `<pre>${result}</pre>`
-    fs.writeFileSync(
-      "./docs/video/index.json",
-      JSON.stringify(result, null, 2)
-    );
-  })
-  .catch((err) => console.log(err));
-
 function latest() {
-  const a = fs.statSync("./dist/application.json").mtime.toDateString();
-  const aa = fs.statSync("./dist/audio.json").mtime.toDateString();
-  const f = fs.statSync("./dist/font.json").mtime.toDateString();
-  const i = fs.statSync("./dist/image.json").mtime.toDateString();
-  const m1 = fs.statSync("./dist/message.json").mtime.toDateString();
-  const m2 = fs.statSync("./dist/model.json").mtime.toDateString();
-  const m3 = fs.statSync("./dist/multipart.json").mtime.toDateString();
-  const t = fs.statSync("./dist/text.json").mtime.toDateString();
-  const v = fs.statSync("./dist/video.json").mtime.toDateString();
+  const a = fs.statSync("./docs/dist/application.json").mtime.toDateString();
+  const aa = fs.statSync("./docs/dist/audio.json").mtime.toDateString();
+  const f = fs.statSync("./docs/dist/font.json").mtime.toDateString();
+  const i = fs.statSync("./docs/dist/image.json").mtime.toDateString();
+  const m1 = fs.statSync("./docs/dist/message.json").mtime.toDateString();
+  const m2 = fs.statSync("./docs/dist/model.json").mtime.toDateString();
+  const m3 = fs.statSync("./docs/dist/multipart.json").mtime.toDateString();
+  const t = fs.statSync("./docs/dist/text.json").mtime.toDateString();
+  const v = fs.statSync("./docs/dist/video.json").mtime.toDateString();
 
   const da = [a, aa, f, i, m1, m2, m3, t, v];
-  fs.writeFileSync("./dist/last.json", JSON.stringify(da, null, 2));
+  fs.writeFileSync("./docs/dist/last.json", JSON.stringify(da, null, 2));
 }
 
 export {

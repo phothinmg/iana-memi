@@ -1,4 +1,4 @@
-import fs from "node:fs";
+import { writeJson } from "array-json";
 import { clearDirectory } from "array-json/file-system";
 import {
   scrapeSiteApplication,
@@ -13,88 +13,88 @@ import {
   latest,
 } from "./funs.mjs";
 
-clearDirectory("./dist");
-setTimeout(() => {
+clearDirectory("./docs/dist");
+setTimeout(async () => {
   scrapeSiteApplication()
     .then((result) => {
       // const data = `<pre>${result}</pre>`
-      fs.writeFileSync(
-        "./dist/application.json",
-        JSON.stringify(result, null, 2)
+      writeJson(
+        "./docs/dist/application.json",
+        result
       );
     })
     .catch((err) => console.log(err));
-  setTimeout(() => {
+  setTimeout(async () => {
     scrapeSiteAudio()
       .then((result) => {
         // const data = `<pre>${result}</pre>`
-        fs.writeFileSync("./dist/audio.json", JSON.stringify(result, null, 2));
+        writeJson("./docs/dist/audio.json", result);
       })
       .catch((err) => console.log(err));
-    setTimeout(() => {
+    setTimeout(async () => {
       scrapeSiteFont()
         .then((result) => {
           // const data = `<pre>${result}</pre>`
-          fs.writeFileSync("./dist/font.json", JSON.stringify(result, null, 2));
+          writeJson("./docs/dist/font.json", result);
         })
         .catch((err) => console.log(err));
-      setTimeout(() => {
+      setTimeout(async () => {
         scrapeSiteImage()
           .then((result) => {
             // const data = `<pre>${result}</pre>`
-            fs.writeFileSync(
-              "./dist/image.json",
-              JSON.stringify(result, null, 2)
+            writeJson(
+              "./docs/dist/image.json",
+              result
             );
           })
           .catch((err) => console.log(err));
-        setTimeout(() => {
+        setTimeout(async () => {
           scrapeSiteMessage()
             .then((result) => {
               // const data = `<pre>${result}</pre>`
-              fs.writeFileSync(
-                "./dist/message.json",
-                JSON.stringify(result, null, 2)
+              writeJson(
+                "./docs/dist/message.json",
+                result
               );
             })
             .catch((err) => console.log(err));
-          setTimeout(() => {
+          setTimeout(async () => {
             scrapeSiteModel()
               .then((result) => {
                 // const data = `<pre>${result}</pre>`
-                fs.writeFileSync(
-                  "./dist/model.json",
-                  JSON.stringify(result, null, 2)
+                writeJson(
+                  "./docs/dist/model.json",
+                  result
                 );
               })
               .catch((err) => console.log(err));
-            setTimeout(() => {
+            setTimeout(async () => {
               scrapeSiteMultipart()
                 .then((result) => {
                   // const data = `<pre>${result}</pre>`
-                  fs.writeFileSync(
-                    "./dist/multipart.json",
-                    JSON.stringify(result, null, 2)
+                  writeJson(
+                    "./docs/dist/multipart.json",
+                    result
                   );
                 })
                 .catch((err) => console.log(err));
-              setTimeout(() => {
+              setTimeout(async () => {
                 scrapeSiteText()
                   .then((result) => {
                     // const data = `<pre>${result}</pre>`
-                    fs.writeFileSync(
-                      "./dist/text.json",
-                      JSON.stringify(result, null, 2)
+                    writeJson(
+                      "./docs/dist/text.json",
+                      result
                     );
                   })
                   .catch((err) => console.log(err));
-                setTimeout(() => {
+                setTimeout(async () => {
                   scrapeSiteVideo()
                     .then((result) => {
                       // const data = `<pre>${result}</pre>`
-                      fs.writeFileSync(
-                        "./dist/video.json",
-                        JSON.stringify(result, null, 2)
+                      writeJson(
+                        "./docs/dist/video.json",
+                        result
                       );
                     })
                     .catch((err) => console.log(err));
